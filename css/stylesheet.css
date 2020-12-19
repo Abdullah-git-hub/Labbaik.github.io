@@ -277,7 +277,7 @@ button {
 .lastItem {
     border: none;
 }
-/* HOVER ITEMS */
+/* --------HOVER ITEMS------------- */
 .topMenu ul li:hover {
     background: #e2d4c1;
 }
@@ -286,3 +286,30 @@ button {
     border: 2px solid antiquewhite;
     box-shadow: 3px 3px 6px #0000006b;
 }
+/* --------HOVER ITEMS------------- */
+
+/* ------------Media Quearies------------ */
+@media (max-width: 768px){
+    .topHeading h3 {
+        font-size: 50px;
+    }
+    .topLeft h3 {
+        float: right;
+        font-size: 27px;
+        margin: -3px 6px;
+    }
+    .topLeft img {
+        width: 25px;
+    }
+    .topMenu ul li {
+        padding: 11px 10px;
+    }
+    .topHadith p {
+        font-size: 12px;
+    }
+    .bodyHead h3 {
+        font-size: 22px;
+    }
+}
+
+
