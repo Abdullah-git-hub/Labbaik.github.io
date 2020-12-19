@@ -312,4 +312,12 @@ button {
     }
 }
 
+@media (max-width: 580px){
+    .topMenu ul li {
+        padding: 6px 6px;
+    }
+    .topMenu ul li a {
+        font-size: 10px;
+    }
+}
 
