@@ -236,6 +236,7 @@ button {
     font-size: 55px;
     letter-spacing: 3px;
     height: 100%;
+    text-shadow: 0 0 8px white, 0 0 35px antiquewhite;
 }
 
 .footerContainer {
