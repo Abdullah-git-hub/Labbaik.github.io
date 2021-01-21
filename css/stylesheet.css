@@ -7,11 +7,14 @@
 *{
     margin: 0;
     padding: 0;
+    transition: 00.15s;
+    /* box-sizing: border-box; */
 }
 header {
     position: sticky;
     top: 0;
     box-shadow: 1px 3px 18px #00000078;
+    z-index: 1;
 }
 h3{
     font-family: 'Texturina', serif;
@@ -44,7 +47,33 @@ h3{
     margin: -3px 6px;
     cursor: pointer;
 }
+.sideIconWraper {
+    padding: 7px;
+    display: none;
+}
+.sideIcon {
+    border: 2px solid #666;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 33px;
+    width: 40px;
+    margin-right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    /* margin-top: 20px; */
+    padding: 2px 4px;
+}
 
+.sideIconLine {
+    height: 3px;
+    width: 28px;
+    background: #666;
+    /* margin-top: 6px; */
+    margin: auto;
+}
 .topMenu ul li a {
     text-decoration: none;
     color: black;
@@ -102,9 +131,6 @@ li#subMenuLastChild {
     border: none;
 }
 
-.topMenu ul li:hover .subMenu {
-    display: block;
-}
 ul li.subMenuLastChild{
     border: none;
 }
@@ -185,7 +211,8 @@ ul li.subMenuLastChild{
 .itemButton a {
     text-decoration: none;
     color: black;
-    /* padding: 12px; */
+    font-family: 'Signika Negative';
+    font-size: 18px;
 }
 
 .itemButton {
@@ -197,8 +224,8 @@ ul li.subMenuLastChild{
 
 button {
     padding: 8px;
-    background: coral;
-    border: 2px solid #e9473b;
+    background: #f9d7ab;
+    border: 2px solid #c79a96;
     border-radius: 4px;
 }
 .bodyItems a {
@@ -236,7 +263,7 @@ button {
     font-size: 55px;
     letter-spacing: 3px;
     height: 100%;
-    text-shadow: 0 0 8px white, 0 0 35px antiquewhite;
+    text-shadow: 0 0 8px white;
 }
 
 .footerContainer {
@@ -259,6 +286,7 @@ button {
     display: flex;
     justify-content: space-evenly;
     padding: 25px 0px;
+    flex-wrap: wrap;
 }
 
 .siteContainer ul {
@@ -278,7 +306,55 @@ button {
 .lastItem {
     border: none;
 }
+.sideBar {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 37%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.2s linear;
+}
+
+.sideMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #faebd7f7;
+}
+.sideMenu ul {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.sideMenu li a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Signika Negative', sans-serif;
+    font-size: 20px;
+}
+
+.sideMenu li {
+    padding: 12px 2px;
+}
+ul.sideSubMenu {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background: #faebd7f7;
+    border-right: 2px solid;
+    transform: translateY(35px);
+    /* opacity: 0; */
+    display: none;
+}
+
 /* --------HOVER ITEMS------------- */
+.topMenu ul li:hover .subMenu {
+    display: block;
+    animation: onHover 0.15s linear forwards;
+}
 .topMenu ul li:hover {
     background: #e2d4c1;
 }
@@ -287,38 +363,296 @@ button {
     border: 2px solid antiquewhite;
     box-shadow: 3px 3px 6px #0000006b;
 }
+.sideMenu li:hover {
+    background: #e2d4c1;
+}
+.sideMenu li:hover .sideSubMenu {
+    display: block;
+}
+.sideMenu li:hover .sideSubMenu {
+    display: block;
+    animation: onHover 0.15s linear forwards;
+}
+.sideIconWraper:hover .sideBar{
+    transform: scaleY(1);
+}
+
+button:hover {
+    background: antiquewhite;
+}
+.sideIcon:hover {
+    background: #e2d4c1;
+}
 /* --------HOVER ITEMS------------- */
+
+/* -----animations----------*/
+
+@keyframes onHover{
+    0%{transform: translateY(35px);opacity: 0;}
+    100%{transform: translateY(0px);opacity: 1;}
+}
+
 
 /* ------------Media Quearies------------ */
 @media (max-width: 768px){
+    .topRight{
+        display: none;
+    }
+    .topLeft{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .topLeft img{
+        float: none;
+        margin: 0;
+        margin-left: auto;
+    }
+    .topLeft h3{
+        float: none;
+        margin-right: auto;
+    }
+    .sideIconWraper {
+        display: block;
+    }
+    .sideIcon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 1;
+        visibility: visible;
+        cursor: pointer;
+    }
+    .bodyHead h3 {
+        font-size: 29px;
+    }
+    .topHadith p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 616px){
     .topHeading h3 {
         font-size: 50px;
     }
-    .topLeft h3 {
-        float: right;
-        font-size: 27px;
-        margin: -3px 6px;
+    .topLeft h3{
+        font-size: 25px;
+    }
+    .topLeft img {
+        width: 35px;
+    }
+    .sideIcon{
+        height: 25px;
+        width: 30px;
+    }
+    .bodyHead h3 {
+        font-size: 25px;
+    }
+    .bodyItems {
+        padding: 7px;
+        height: 270px;
+    }
+    .itemImg img {
+        width: 190px;
+        height: 175px;
+    }
+    .itemHead h3 {
+        font-size: 20px;
+    }
+    .itemHead p {
+        font-size: 14px;
+    }
+    .sideBar {
+        top: 46px;
+    }
+}
+@media (max-width: 426px){
+    .bodyHead h3 {
+        font-size: 20px;
+    }
+    .topHeading h3 {
+        font-size: 40px;
+    }
+    .topHadith p {
+        font-size: 8px;
+    }
+    .itemHead h3 {
+        font-size: 15px;
+    }
+    .itemHead p {
+        font-size: 10px;
+    }
+    .itemImg img {
+        width: 145px;
+        height: 142px;
+    }
+    .bodyItems {
+        padding: 7px;
+        height: 220px;
+    }
+    .sideIconLine {
+        height: 2px;
+        width: 24px;
+    }
+    .sideIcon {
+        height: 21px;
+        width: 26px;
+    }
+    .bodyItems:nth-child(7){
+        display: none;
+    }
+    .bodyItems:nth-child(8){
+        display: none;
+    }
+    .sideBar {
+        top: 42px;
+    }
+    .sideMenu li a {
+        font-size: 17px;
+    }
+    .sideMenu li {
+        padding: 8px 2px;
+    }
+    .sideBar {
+        width: 40%;
+    }
+}
+@media (max-width: 376px){
+    .itemImg img {
+        width: 100px;
+        height: 90px;
+        margin-top: 10px;
+    }
+    .bodyItems {
+        padding: 7px;
+        height: 180px;
+        margin: 2px;
+    }
+    .bodyItemContainer {
+        width: 100%;
+        justify-content: center;
+    }
+    .itemHead p {
+        font-size: 9px;
+    }
+    .bodyItems:nth-child(7){
+        display: none;
+    }
+    .bodyItems:nth-child(8){
+        display: none;
+    }
+    .itemButton a {
+        font-size: 10px;
+    }
+    button {
+        padding: 4px;
+        border-radius: 4px;
+    }
+    .designer p {
+        font-size: 12px;
+    }
+    .siteContainer h5 {
+        font-size: 13px;
+    }
+    .siteContainer ul li a {
+        font-size: 11px;
+    }
+    .sideIcon {
+        height: 18px;
+        width: 21px;
+    }
+    .sideIconLine {
+        width: 19px;
+    }
+    .topLeft img {
+        width: 30px;
+    }
+    .sideMenu li a {
+        font-size: 16px;
+    }
+    .sideMenu li {
+        padding: 8px 2px;
+    }
+    .sideBar {
+        top: 40px;
+    }
+    .sideBar {
+        width: 46%;
+    }
+}
+@media (max-width: 321px){
+    .sideIcon {
+        height: 16px;
+        width: 18px;
+    }
+    .sideIconLine {
+        height: 2px;
+        width: 17px;
     }
     .topLeft img {
         width: 25px;
     }
-    .topMenu ul li {
-        padding: 11px 10px;
+    .topHeading h3 {
+        font-size: 30px;
     }
     .topHadith p {
-        font-size: 12px;
+        font-size: 6px;
     }
     .bodyHead h3 {
-        font-size: 22px;
+        font-size: 13px;
     }
-}
-
-@media (max-width: 580px){
-    .topMenu ul li {
-        padding: 6px 6px;
+    .itemHead p {
+        font-size: 7px;
     }
-    .topMenu ul li a {
+    .itemHead h3 {
+        font-size: 11px;
+    }
+    .itemImg img {
+        width: 110px;
+    }
+    .bodyItems {
+        padding: 9px;
+        height: 166px;
+        margin: 8px;
+    }
+    .itemButton a {
+        font-size: 8px;
+    }
+    button {
+        padding: 1px;
+        border-radius: 2px;
+    }
+    .designer p {
         font-size: 10px;
     }
+    .siteContainer h5 {
+        font-size: 10px;
+    }
+    .siteContainer ul li a {
+        font-size: 10px;
+    }
+    .footerLogo h3 a {
+        font-size: 30px;
+        letter-spacing: 0px;
+    }
+    .bodyItems:nth-child(7){
+        display: none;
+    }
+    .bodyItems:nth-child(8){
+        display: none;
+    }
+    .sideBar {
+        top: 38px;
+    }
+    .sideMenu li a {
+        font-size: 13px;
+    }
+    .sideMenu li {
+        padding: 5px 2px;
+    }
+    .sideBar {
+        width: 50%;
+    }
 }
-
